@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f3e8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="特岗刷题" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>特岗简答题刷题</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">河北特岗 · 教育学小四门</p>
+          <h1>简答题刷题</h1>
+        </div>
+        <button class="icon-button" id="installHintButton" type="button" aria-label="安装提示" title="安装提示">
+          +
+        </button>
+      </header>
+
+      <main>
+        <section class="overview" aria-label="学习进度">
+          <div class="metric">
+            <span id="totalCount">0</span>
+            <small>总题数</small>
+          </div>
+          <div class="metric">
+            <span id="masteredCount">0</span>
+            <small>已掌握</small>
+          </div>
+          <div class="metric">
+            <span id="reviewCount">0</span>
+            <small>复习次数</small>
+          </div>
+        </section>
+
+        <section class="controls" aria-label="筛选">
+          <label class="search-box">
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="题干或答案关键词" autocomplete="off" />
+          </label>
+          <label class="select-box">
+            <span>章节</span>
+            <select id="chapterSelect"></select>
+          </label>
+        </section>
+
+        <nav class="tabs" aria-label="刷题模式">
+          <button class="tab active" data-mode="all" type="button">全部</button>
+          <button class="tab" data-mode="wrong" type="button">错题</button>
+          <button class="tab" data-mode="favorite" type="button">收藏</button>
+        </nav>
+
+        <section class="study-layout">
+          <aside class="question-list" aria-label="题目列表">
+            <div class="list-heading">
+              <strong id="visibleCount">0 题</strong>
+              <button id="randomButton" type="button">随机</button>
+            </div>
+            <div id="questionList" class="list-items"></div>
+          </aside>
+
+          <article class="study-card" aria-live="polite">
+            <div class="card-meta">
+              <span id="cardChapter">加载中</span>
+              <span id="cardPage"></span>
+            </div>
+            <h2 id="questionTitle">正在读取题库...</h2>
+            <div class="answer-panel hidden" id="answerPanel"></div>
+            <div class="empty-state" id="emptyState" hidden>没有匹配的题目。</div>
+
+            <div class="action-row">
+              <button id="prevButton" type="button">上一题</button>
+              <button id="toggleAnswerButton" class="primary" type="button">显示答案</button>
+              <button id="nextButton" type="button">下一题</button>
+            </div>
+
+            <div class="state-row">
+              <button id="masterButton" type="button">标记掌握</button>
+              <button id="wrongButton" type="button">加入错题</button>
+              <button id="favoriteButton" type="button">收藏</button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="installDialog">
+      <form method="dialog">
+        <h2>添加到主屏幕</h2>
+        <p>在 iPhone 或 iPad 的 Safari 中，点分享按钮，再选“添加到主屏幕”。之后可以像 App 一样打开，并离线刷题。</p>
+        <button class="primary" value="close">知道了</button>
+      </form>
+    </dialog>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

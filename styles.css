@@ -1,0 +1,372 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f3e8;
+  --surface: #fffdf7;
+  --surface-strong: #ffffff;
+  --ink: #23302f;
+  --muted: #6d766f;
+  --line: #ded7c8;
+  --accent: #0b6b5e;
+  --accent-strong: #084b43;
+  --mark: #bf4e30;
+  --shadow: 0 16px 45px rgba(50, 45, 31, 0.12);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(247, 243, 232, 0.88), rgba(243, 239, 229, 0.95)),
+    radial-gradient(circle at top left, rgba(11, 107, 94, 0.14), transparent 34%);
+  color: var(--ink);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button.primary,
+.primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+button.active,
+button.is-on {
+  border-color: var(--accent);
+  background: #e7f2ef;
+  color: var(--accent-strong);
+}
+
+.app-shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: calc(18px + env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 0;
+}
+
+.icon-button {
+  width: 46px;
+  min-width: 46px;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.overview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.metric {
+  min-height: 86px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 247, 0.82);
+}
+
+.metric span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 760;
+}
+
+.metric small {
+  color: var(--muted);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr minmax(210px, 320px);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.search-box,
+.select-box {
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.search-box span,
+.select-box span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+input,
+select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.study-layout {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.question-list,
+.study-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.question-list {
+  position: sticky;
+  top: 14px;
+  max-height: calc(100vh - 28px);
+  overflow: hidden;
+}
+
+.list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.list-heading button {
+  min-height: 36px;
+  padding: 0 12px;
+}
+
+.list-items {
+  max-height: calc(100vh - 91px);
+  overflow: auto;
+  padding: 8px;
+}
+
+.list-item {
+  display: grid;
+  width: 100%;
+  min-height: 54px;
+  margin-bottom: 6px;
+  padding: 9px 10px;
+  text-align: left;
+  border-color: transparent;
+  background: transparent;
+}
+
+.list-item:hover,
+.list-item.current {
+  background: #eef5f1;
+  border-color: #bfd9d1;
+}
+
+.list-item strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-item small {
+  color: var(--muted);
+}
+
+.study-card {
+  min-height: 560px;
+  padding: clamp(18px, 3vw, 34px);
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.card-meta span {
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.study-card h2 {
+  margin-bottom: 22px;
+  font-size: clamp(1.36rem, 2.4vw, 2.25rem);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.answer-panel {
+  min-height: 230px;
+  margin-bottom: 22px;
+  padding: 18px;
+  border: 1px solid #d8cab6;
+  border-radius: 8px;
+  background: #fffaf0;
+  line-height: 1.78;
+  white-space: pre-wrap;
+}
+
+.answer-panel.hidden {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}
+
+.answer-panel.hidden::before {
+  content: "答案已隐藏";
+}
+
+.empty-state {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.action-row,
+.state-row {
+  display: grid;
+  gap: 8px;
+}
+
+.action-row {
+  grid-template-columns: 1fr 1.2fr 1fr;
+  margin-bottom: 8px;
+}
+
+.state-row {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+dialog {
+  width: min(420px, calc(100% - 32px));
+  border: 0;
+  border-radius: 8px;
+  padding: 20px;
+  background: var(--surface-strong);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+dialog::backdrop {
+  background: rgba(35, 48, 47, 0.32);
+}
+
+dialog button {
+  width: 100%;
+}
+
+@media (max-width: 860px) {
+  .study-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .question-list {
+    position: static;
+    max-height: 260px;
+  }
+
+  .list-items {
+    max-height: 198px;
+  }
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+
+  .overview {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    min-height: 68px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs,
+  .action-row,
+  .state-row {
+    grid-template-columns: 1fr;
+  }
+
+  .study-card {
+    min-height: auto;
+  }
+}

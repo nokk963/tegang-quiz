@@ -1,0 +1,23 @@
+{
+  "name": "特岗简答题刷题",
+  "short_name": "特岗刷题",
+  "description": "河北特岗教育学小四门简答题背题与自测工具",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f3e8",
+  "theme_color": "#0b6b5e",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
