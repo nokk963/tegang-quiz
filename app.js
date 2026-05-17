@@ -286,7 +286,7 @@ function bindEvents() {
 }
 
 async function init() {
-  const response = await fetch("./data/questions.json", { cache: "no-store" });
+  const response = await fetch("./questions.json", { cache: "no-store" });
   if (!response.ok) throw new Error("题库读取失败");
   const data = await response.json();
   app.questions = data.questions;
