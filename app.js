@@ -121,7 +121,7 @@ function renderList() {
     fragment.appendChild(button);
   });
 
-  els.questionList.replaceChildren(fragment);
+  replaceContent(els.questionList, fragment);
 }
 
 function renderCard() {
@@ -185,13 +185,20 @@ function escapeHtml(value) {
     return map[char];
   });
 }
-
+function replaceContent(element, content) {
+  element.textContent = "";
+  if (Array.isArray(content)) {
+    content.forEach((item) => element.appendChild(item));
+    return;
+  }
+  element.appendChild(content);
+}
 function setupChapters() {
   const options = [new Option("全部章节", "all")];
   for (const chapter of chapters()) {
     options.push(new Option(chapter, chapter));
   }
-  els.chapterSelect.replaceChildren(...options);
+  replaceContent(els.chapterSelect, options);
 }
 
 function bindEvents() {
